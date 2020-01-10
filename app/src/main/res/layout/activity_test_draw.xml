@@ -72,6 +72,19 @@
             android:background="@color/colorAccent"
             android:orientation="horizontal" />
 
+        <com.zcc.myapplication.draw.RoundCornerContainer
+            android:id="@+id/rdjj"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorAccent" />
+
+        </com.zcc.myapplication.draw.RoundCornerContainer>
+
 
     </LinearLayout>
 </ScrollView>

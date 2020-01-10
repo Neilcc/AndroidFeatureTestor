@@ -35,6 +35,7 @@ public class TestDrawActivity extends AppCompatActivity {
             tv.setBackgroundColor(Color.GREEN);
             dv.addView(tv, lp);
         }
+        ((RoundCornerContainer) findViewById(R.id.rdjj)).setCornerRadius(300);
     }
 
 }
