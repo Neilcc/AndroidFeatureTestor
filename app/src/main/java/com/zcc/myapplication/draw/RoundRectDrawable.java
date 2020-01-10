@@ -3,12 +3,15 @@ package com.zcc.myapplication.draw;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by 薛贤俊 on 2019/3/11.
@@ -17,6 +20,7 @@ public class RoundRectDrawable extends Drawable {
 
     protected Path mPath = new Path();
     private RectF mRect = new RectF();
+    private Rect outlineR = new Rect();
     private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private float mTopLeftRadius;
@@ -58,6 +62,7 @@ public class RoundRectDrawable extends Drawable {
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
         mRect.set(bounds);
+        outlineR.set(bounds);
         updatePath();
     }
 
@@ -77,6 +82,11 @@ public class RoundRectDrawable extends Drawable {
         if (mBorderWidth > 0) {
             canvas.drawPath(mPath, mBorderPaint);
         }
+    }
+
+    @Override
+    public void getOutline(@NonNull Outline outline) {
+        outline.setRoundRect(outlineR,mTopLeftRadius);
     }
 
     @Override

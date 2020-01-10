@@ -1,5 +1,6 @@
 package com.zcc.myapplication.draw;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ViewGroup;
@@ -20,13 +21,17 @@ public class TestDrawActivity extends AppCompatActivity {
         findViewById(R.id.test_img).setBackground(new RoundRectDrawable(300, 30, 30, 30, Color.BLUE));
         findViewById(R.id.test_rl).setBackground(new RoundRectDrawable(400, 40, 40, 40, Color.YELLOW));
         findViewById(R.id.test_imgg).setBackground(new RoundRectDrawable(300, 30, 30, 30, Color.BLUE));
-        findViewById(R.id.test_rll).setBackground(new RoundRectDrawable(400, 40, 40, 40, Color.YELLOW));
+        findViewById(R.id.test_rll).setBackground(new RoundRectDrawable(50, 50, 50, 50, Color.GREEN));
+        findViewById(R.id.test_rll).setClipToOutline(true);
         findViewById(R.id.test_imggg).setOutlineProvider(new RoundRectOutline());
         findViewById(R.id.test_imggg).setClipToOutline(true);
-        findViewById(R.id.test_rlll).setOutlineProvider(new RoundRectOutline());
+//        findViewById(R.id.test_rlll).setOutlineProvider(new RoundRectOutline());
+//        findViewById(R.id.test_rlll).setClipToOutline(true);
+        findViewById(R.id.test_rlll).setBackground(new com.zcc.myapplication.draw.framework.RoundRectDrawable(ColorStateList.valueOf(Color.GREEN), 150f));
         findViewById(R.id.test_rlll).setClipToOutline(true);
         LinearLayout dv = findViewById(R.id.dv);
         dv.setOutlineProvider(new RoundRectOutline());
+//        dv.setBackground(new RoundRectDrawable(50, 50, 50, 50, Color.GREEN));
         dv.setClipToOutline(true);
         for (int i = 0; i < 10; i++) {
             TextView tv = new DelegateTextView(this);
